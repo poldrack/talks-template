@@ -1,0 +1,15 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "NiPreps talks"
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+
+
+
