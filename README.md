@@ -2,15 +2,21 @@
 
 This is a talk template for Markdown-based presentations using Quarto.  
 
-To create a new talk, simply use this repository as a template when you generate a new repository for the new talk. 
-
 NOTE:  If you are not Russ Poldrack then you should first fork this repo and modify the files to replace my name and information with your own!
 
-### Single Talk in its Own Repo (STOR)
+### Single Talk in its Own Repo (STOR) Template
 
 This repository is built around the "Single talk in its Own Repo" (STOR) model.  Many researchers will give the same talk repeatedly over time, making changes with each presentation.  The STOR model maintains a single repository for that talk, with the main branch representing the current version of the talk.  
 
-The version tag of the current talk is set within the Makefile, e.g.:
+# Using the template
+
+To create a new talk, simply use this repository as a template when you generate a new repository for the new talk. 
+
+After creating the new repository, you will first need to make the following changes:
+
+- You will need to enable Github Pages in order for the content to appear on the web.  To do this, go to `Settings -> Pages` in the new repository, and select "Deploy from a Branch" from the Source menu, select "Main" as the branch and "docs" as the folder, then click "Save".
+
+- Set the version tag. The version tag of the current talk is set within the Makefile, e.g.:
 
 `TAG = "NiPreps_BRAIN_11_17_2022"`
 
