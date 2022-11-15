@@ -1,15 +1,18 @@
-VERSION = "NiPreps_BRAIN_Nov2022"
+# This tag should match the release tag in Github
+TAG = "Topic_Venue_Month_Day_Year"
 
 
-all: render-talk render-site render-pdf
+all: render-talk render-pdf render-site
 
 render-talk:
-	-rm -rf docs/talk/*
-	cd talk && quarto render NiPreps.qmd
+	-git rm -rf docs/talk/*
+	cd talk && quarto render talk.qmd
 	# fix quarto bug
 	# need to use sed inline mode
+	-git add docs/talk/*
 	-git add docs/talk/images/*
-	sed -i.bak 's-LICENSE-NiPreps-' docs/talk/index.html
+	-git add talk/images/*
+	# sed -i.bak 's-LICENSE-talk-' docs/talk/index.html
 	git commit -a -m"updating changed files"
 	git push origin main
 
@@ -23,8 +26,8 @@ render-site:
 
 render-pdf:
 	-mkdir docs/pdfs
-	decktape reveal docs/talk/NiPreps.html docs/pdfs/$(VERSION).pdf
-	git add docs/pdfs/$(VERSION).pdf
+	decktape reveal docs/talk/talk.html docs/pdfs/$(TAG).pdf
+	git add docs/pdfs/$(TAG).pdf
 	git commit -m"adding pdf [skip ci]"
 	git push origin main
 
