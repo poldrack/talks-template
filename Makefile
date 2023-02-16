@@ -1,5 +1,5 @@
 # This tag should match the release tag in Github
-TAG = "BrainBehaviorAssocaition_CNS_March_28_2023"
+TAG = "Topic_Venue_month_day_year"
 
 all: render-talk push-talk render-pdf push-pdf render-site push-site
 
