@@ -4,15 +4,13 @@ TAG = "Topic_Venue_month_day_year"
 all: render-talk push-talk render-site push-site
 
 render-talk:
-	-git rm -rf docs/talk/*
+	-git rm -rf docs/*
 	cd talk && quarto render talk.qmd
-	# fix quarto bug
-	# need to use sed inline mode
-	# sed -i.bak 's-LICENSE-talk-' docs/talk/index.html
-
-push-talk:
 	python setup_redirect.py
 	git add docs/talk/index.html
+	-git add talk/talk.qmd
+
+push-talk:
 	-git add docs/talk/*
 	-git add docs/talk/images/*
 	-git add talk/images/*
