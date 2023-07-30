@@ -1,7 +1,7 @@
 # This tag should match the release tag in Github
 TAG = "Topic_Venue_month_day_year"
 
-all: render-talk push-talk render-pdf push-pdf render-site push-site
+all: render-talk push-talk render-site push-site
 
 render-talk:
 	-git rm -rf docs/talk/*
@@ -11,6 +11,8 @@ render-talk:
 	# sed -i.bak 's-LICENSE-talk-' docs/talk/index.html
 
 push-talk:
+	python setup_redirect.py
+	git add docs/index.html
 	-git add docs/talk/*
 	-git add docs/talk/images/*
 	-git add talk/images/*
@@ -26,6 +28,10 @@ push-site:
 	git add docs/*
 	git commit -m"updating changed files"
 	git push origin main
+
+# NOTE: pdf rendering doesn't work well using decktape
+# a better solution is to print from chrome
+# but the PDFs are often too large for github anyway
 
 render-pdf:
 	-mkdir docs/pdfs
