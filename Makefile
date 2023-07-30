@@ -12,7 +12,7 @@ render-talk:
 
 push-talk:
 	python setup_redirect.py
-	git add docs/index.html
+	git add docs/talk/index.html
 	-git add docs/talk/*
 	-git add docs/talk/images/*
 	-git add talk/images/*
@@ -26,6 +26,7 @@ render-site:
 
 push-site:
 	git add docs/*
+	git add -u
 	git commit -m"updating changed files"
 	git push origin main
 

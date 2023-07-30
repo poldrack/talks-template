@@ -28,5 +28,5 @@ redirect = f"""<!DOCTYPE html>
 </html>
 """
 
-with open("docs/index.html", "w") as f:
+with open("docs/talk/index.html", "w") as f:
     f.write(redirect)
