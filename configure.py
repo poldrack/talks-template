@@ -96,7 +96,19 @@ def fix_site(config, backup=True):
 
     with open("site/index.qmd", "w") as f:
         f.write(index)
+    
+    with open('site/_quarto.yml', 'r') as f:
+        quarto = f.read()
+    
+    quarto = quarto.replace(
+        "Template talk", 
+        config['title'])
+    quarto = quarto.replace(
+        "https://github.com/poldrack/talks-template",
+        config['repo_url'])
 
+    with open("site/_quarto.yml", "w") as f:
+        f.write(quarto)
 
 def fix_talk(config, backup=True):
     with open("talk/talk.qmd", "r") as f:
